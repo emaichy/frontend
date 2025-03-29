@@ -1,0 +1,69 @@
+/* Contenedor de la tabla */
+.container {
+    max-width: 1400px; /* Aumentamos aún más el ancho */
+    margin: 0 auto;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Subtítulo */
+  .title {
+    font-size: 28px; /* Aumento del tamaño del título */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 40px; /* Más espacio entre el título y la tabla */
+  }
+  
+  /* Estilos de la tabla */
+  .users-table {
+    width: 100%;
+    max-width: 100%; /* La tabla ocupa todo el ancho disponible */
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 40px; /* Más separación entre el título y la tabla */
+  }
+  
+  /* Encabezados */
+  .users-table th {
+    background: linear-gradient(to right, #2fcbd3, #9a5fff); /* Rojo cereza */
+    color: white;
+    padding: 25px; /* Aumento del padding */
+    text-align: left;
+    font-size: 20px; /* Aumento del tamaño de la fuente de los encabezados */
+  }
+  
+  /* Celdas de la tabla */
+  .users-table td {
+    padding: 25px; /* Aumento del padding */
+    font-size: 18px; /* Aumento del tamaño de texto en las celdas */
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Efecto hover */
+  .users-table tr:hover {
+    background-color: #f0e7ff;
+    cursor: pointer;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .container {
+      padding: 20px;
+    }
+  
+    .users-table th,
+    .users-table td {
+      padding: 20px; /* Ajustamos el padding para dispositivos más pequeños */
+      font-size: 16px; /* Reducimos ligeramente el tamaño de fuente */
+    }
+  
+    .main-title {
+      font-size: 28px;
+    }
+  }
+  

@@ -1,0 +1,29 @@
+/* Estilo global */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+  background-color: #eeeeee;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Contenedor principal */
+.app-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Título principal */
+.main-title {
+  font-size: 36px;
+  font-weight: bold;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
