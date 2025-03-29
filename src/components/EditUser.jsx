@@ -37,7 +37,7 @@ const EditUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`https://3.137.174.238/users/${userId}`, {
+      const response = await fetch(`https://18.222.216.105/users/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
