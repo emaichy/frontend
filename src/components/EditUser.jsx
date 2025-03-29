@@ -10,7 +10,7 @@ const EditUser = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:5000/users/${userId}`);
+        const response = await fetch(`http://18.222.216.105/users/${userId}`);
         const data = await response.json();
         if (data) {
           setUser(data);
