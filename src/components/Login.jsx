@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./styleslogin.css"; 
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -36,7 +37,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h2>Iniciar Sesiónes</h2>
+      <h2>Login paps</h2>
       {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleLogin}>
         <input
