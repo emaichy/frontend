@@ -13,7 +13,7 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await fetch("http://18.222.216.105/users/login", {
+      const response = await fetch("https://18.222.216.105/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
