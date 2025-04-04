@@ -13,7 +13,6 @@ export const UsersList = ({ users = [], onEdit, onDelete }) => {
             <th>Name</th>
             <th>Last Name</th>
             <th>Email</th>
-            <th>Actions</th> {/* Columna para los botones */}
           </tr>
         </thead>
         <tbody>
