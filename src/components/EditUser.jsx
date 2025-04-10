@@ -4,7 +4,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 const EditUser = () => {
   const { userId } = useParams();
   const [user, setUser] = useState(null);
-  const [password, setPassword] = useState(''); // Nuevo estado para la contraseña
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -14,7 +13,7 @@ const EditUser = () => {
         const response = await fetch(`https://18.222.216.105/users/${userId}`);
         const data = await response.json();
         if (data) {
-          setUser(data);
+          setUser({ ...data, password: '' });  // para manejar password vacío
         } else {
           console.error('Usuario no encontrado');
         }
@@ -38,14 +37,14 @@ const EditUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const updatedData = {
+    const updatedUser = {
       name: user.name,
       last_name: user.last_name,
       email: user.email,
     };
 
-    if (password.trim() !== "") {
-      updatedData.password = password;
+    if (user.password && user.password.trim() !== '') {
+      updatedUser.password = user.password;
     }
 
     try {
@@ -54,7 +53,7 @@ const EditUser = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(updatedData),
+        body: JSON.stringify(updatedUser),
       });
 
       if (!response.ok) {
@@ -111,19 +110,16 @@ const EditUser = () => {
             style={styles.input}
           />
         </label>
-
         <label style={styles.label}>
-          Nueva Contraseña (opcional):
+          Contraseña (solo si desea cambiarla):
           <input
             type="password"
             name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Escribir solo si deseas cambiarla"
+            value={user.password}
+            onChange={handleChange}
             style={styles.input}
           />
         </label>
-
         <button type="submit" style={styles.button}>Guardar cambios</button>
       </form>
     </div>
