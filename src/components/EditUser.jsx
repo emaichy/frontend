@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 const EditUser = () => {
   const { userId } = useParams();
   const [user, setUser] = useState(null);
+  const [password, setPassword] = useState(''); // Nuevo estado para la contraseña
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -36,13 +37,24 @@ const EditUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const updatedData = {
+      name: user.name,
+      last_name: user.last_name,
+      email: user.email,
+    };
+
+    if (password.trim() !== "") {
+      updatedData.password = password;
+    }
+
     try {
       const response = await fetch(`https://18.222.216.105/users/${userId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(user),
+        body: JSON.stringify(updatedData),
       });
 
       if (!response.ok) {
@@ -99,8 +111,21 @@ const EditUser = () => {
             style={styles.input}
           />
         </label>
+
+        <label style={styles.label}>
+          Nueva Contraseña (opcional):
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Escribir solo si deseas cambiarla"
+            style={styles.input}
+          />
+        </label>
+
         <button type="submit" style={styles.button}>Guardar cambios</button>
-        </form>
+      </form>
     </div>
   );
 };
@@ -144,7 +169,7 @@ const styles = {
   button: {
     padding: '12px',
     fontSize: '16px',
-    backgroundColor: '#D32F2F', // Color rojito
+    backgroundColor: '#D32F2F',
     color: 'white',
     border: 'none',
     borderRadius: '5px',
@@ -152,9 +177,6 @@ const styles = {
     transition: 'background-color 0.3s',
     width: '100%',
     boxSizing: 'border-box',
-  },
-  buttonHover: {
-    backgroundColor: '#FF5F5F', // Sombra más clara
   },
   errorMessage: {
     color: 'red',
@@ -164,4 +186,3 @@ const styles = {
 };
 
 export default EditUser;
-
