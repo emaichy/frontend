@@ -43,9 +43,10 @@ const EditUser = () => {
       email: user.email,
     };
 
-    if (user.password && user.password.trim() !== '') {
+    if (user.password?.trim()) {
       updatedUser.password = user.password;
     }
+    
 
     try {
       const response = await fetch(`https://18.222.216.105/users/${userId}`, {
